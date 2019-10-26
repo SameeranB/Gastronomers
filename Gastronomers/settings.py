@@ -25,7 +25,7 @@ SECRET_KEY = 'h0lu0s$fgn)u$k+cd2k!a_xgnpq-axxlfn_h7o97fecq(n^o!o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'main',
     'user',
     'feed',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
