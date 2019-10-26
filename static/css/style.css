@@ -1,0 +1,354 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Lakeshore-Regularimport;
+  src: url("Lakeshore-Regular.otf")
+}
+@font-face {
+  font-family: SF-Pro-Display-Regularimport;
+  src: url("SF-Pro-Display-Regular.otf")
+}
+@font-face {
+  font-family: SF-Pro-Display-Semiboldimport;
+  src: url("SF-Pro-Display-Semibold.otf")
+}
+
+body {
+  font-size: 100%;
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  color: black;
+  height: 100%;
+  margin: 0;
+  letter-spacing: 1.5px;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+}
+p {
+  font-family: SF-Pro-Display-Regularimport;
+  font-size: 13px;
+}
+
+p1 {
+  font-family: SF-Pro-Display-Semiboldimport;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p2 {
+  font-family: SF-Pro-Display-Semiboldimport;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.img1 {padding-top:103px;
+padding-bottom: 100px;}
+
+.img2{
+  margin-top:39px;
+  margin-bottom:0px;
+  }
+  .img3{
+    margin-top:39px;
+    margin-bottom:10px;
+    }
+
+/*SOCIAL MEDIA ICONS*/
+.navbar{position:relative;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    -webkit-box-pack:justify;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+    }
+
+    .marg{
+      margin-bottom:10px;
+      margin-top:10px;
+
+    }
+.fixed-top{
+    position:fixed;
+    top:0;right:0;left:0;
+    z-index:1030}
+    .heading{
+      height:120px;
+          top:0;right:0;left:0;
+          z-index:1030}
+.logo{
+    height:75px;
+    width:197px;
+    padding: 5px 5px 5px 5px;
+}
+/* When screen resolution less than 362px */
+        
+@media (max-width:600px) {
+.logo {
+height:50px;
+width:100px;
+}
+}
+
+.social-container {
+  width: 100%;
+  height:100%;
+  text-align: left;
+  background-color: #fbce33;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.social-icons {
+  list-style: none;
+  background-color: #fbce33;
+  margin: 1em;
+  text-align: right;
+}
+.social-icons li {
+  display: inline-block;
+  margin: 0.15em;
+  text-align: right;
+  position: relative;
+  font-size: 1.8em;
+}
+.social-icons i {
+  color: black;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  text-align: right;
+  transition: all 265ms ease-out;
+}
+.social-icons a {
+  display: inline-block;
+  text-align: right;
+
+}
+.social-icons a:before {
+  transform: scale(1);
+  text-align: right;
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  content: " ";
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: block;
+  background: linear-gradient(45deg,black);
+  transition: all 265ms ease-out;
+}
+.social-icons a:hover:before {
+  transform: scale(0);
+  transition: all 265ms ease-in;
+  text-align: right;
+
+}
+.social-icons a:hover i {
+  transform: scale(2.2);
+  -ms-transform: scale(2.2);
+  -webkit-transform: scale(2.2);
+  color: black;
+  text-align: right;
+
+  background: -webkit-linear-gradient(45deg, black,black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 265ms ease-in;
+}
+.social-icons a.social-square:before {
+  background: linear-gradient(45deg, black,black);
+  border-radius: 10%;
+  text-align: right;
+
+}
+.social-icons a.social-square:hover:before {
+  transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: scale(-180deg);
+  border-radius: 100%;
+  text-align: right;
+}
+
+.cd-section1{
+  min-height: 100%;
+  position: relative;
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  padding: 100px 0;
+  font-size: 200%;
+}
+
+.centered h2{
+  padding-left:20px;
+  margin-top:0;
+  padding-right:8px;
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 12vw;
+}
+
+.centered h3{
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  font-weight: 200;
+  margin-top:0;
+  margin-bottom:20px;
+  font-size: 7vw;
+}
+.centered h4{
+  padding-left:20px;
+  margin-top:0;
+  padding-right:8px;
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 10vw;
+}
+#section4{
+  background: rgb(255, 255, 255);
+  margin-bottom:0px;
+
+  }
+.hero{
+    text-align:center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+}
+.heroo{
+  margin-left: auto;
+  margin-right: auto;
+}
+#section1{
+background: #fbce33;
+}
+   
+.cd-section1 h1{
+  position: absolute;
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  left: 50%;
+  bottom: auto;
+  font-size: 10vw;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+   width: 90%;
+    max-width: 768px;
+   text-align: center;
+    color: black;
+   font-weight: 200;
+  }
+.privacy {
+  padding:25px;
+  text-align: justify;
+}
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+right:0;
+height:550px;
+left:0;
+top:0;
+bottom:0;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height:auto;
+  }
+  
+.centered h3{
+  font-family: Lakeshore-Regularimport, Helvetica, sans-serif;
+  font-weight: 200;
+  margin-top:0;
+  margin-bottom:20px;
+  font-size: 13vw;
+}
+}
+.centered {
+          text-align: center;
+        }
+
+        
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: center;
+
+}
+.btn:hover, .btn:focus {
+  color:#fbce33;
+  text-align: center;
+
+  outline: 0;
+}
+
+.third {
+  border-color:#fbce33;
+  text-align: center;
+  margin-left:43%;;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 40px 40px  #fbce33 inset, 0 0 0 0 #fbce33;
+  transition: all 150ms ease-in-out;
+}
+.third:hover {
+  text-align: center;
+  box-shadow: 0 0 10px 0  #fbce33 inset, 0 0 10px 4px  #fbce33;
+}
+@media screen and (max-width: 600px) {
+.third{
+  margin-left:30%;
+}
+}
