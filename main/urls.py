@@ -5,5 +5,6 @@ app_name = "Main"
 
 
 urlpatterns = [
-    path('', index, name="Index")
+    path('', index, name="Index"),
+    path('restaurant/<int:id>', restaurant_view, name="Restaurant"),
 ]

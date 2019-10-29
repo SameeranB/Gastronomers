@@ -9,11 +9,12 @@ class Posts(models.Model):
     post_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE, null=True, blank=True)
     likes = models.IntegerField(default=0)
-    rating = models.IntegerField(choices=[('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5)])
-    shares = models.IntegerField()
+    rating = models.IntegerField(choices=[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)], blank=True, null=True)
+    shares = models.IntegerField(default=0, blank=True, null=True)
     caption = models.TextField()
+    posted_date = models.DateTimeField(auto_now=True)
 
 
 class Pictures(models.Model):
@@ -24,5 +25,6 @@ class Pictures(models.Model):
 
 class Comments(models.Model):
     comment_id = models.AutoField(primary_key=True)
-    post = models.ForeignKey(Posts, on_delete=models.CASCADE)
-    comment = models.TextField()
+    post = models.ForeignKey(Posts, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    body = models.TextField()

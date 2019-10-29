@@ -67,7 +67,7 @@
                 <div class="user-account">
                     <div class="user-info">
                         <img src=" {% static 'images/resources/user.png' %} " alt="">
-                        <a href="#" title="">John</a>
+                        <a href="#" title="">{{ user.first_name }}</a>
                         <em class="fa fa-sort-down"></em>
                     </div>
                     <div class="user-account-settingss" id="users">
@@ -106,18 +106,18 @@
                                         </div>
 
                                         <div class="user-specs">
-                                            <h3>John Doe</h3>
+                                            <h3>{{ user.first_name }} {{ user.last_name }}</h3>
                                         </div>
                                     </div>
 
                                     <ul class="user-fw-status">
                                         <li>
                                             <h4>Following</h4>
-                                            <span>34</span>
+                                            <span>{{ following }}</span>
                                         </li>
                                         <li>
                                             <h4>Followers</h4>
-                                            <span>155</span>
+                                            <span>{{ followers }}</span>
                                         </li>
 
                                     </ul>
@@ -140,97 +140,95 @@
                                 </div>
 
                                 <div class="posts-section">
-                                    <div class="posty">
-                                        <div class="post-bar no-margin">
-                                            <div class="post_topbar">
-                                                <div class="usy-dt">
-                                                    <img src=" {% static 'images/resources/us-pc2.png' %} " alt="">
-                                                    <div class="usy-name">
-                                                        <h3>John Doe</h3>
+                                    {% for post in post_list %}
+                                            <div class="posty">
+                                                <div class="post-bar no-margin">
+                                                    <div class="post_topbar">
+                                                        <div class="usy-dt">
+                                                            <img src=" {% static 'images/resources/us-pc2.png' %} " alt="">
+                                                            <div class="usy-name">
+                                                                <h3>{{ post.user.first_name }} {{ post.user.last_name }}</h3>
+                                                                <form method="post" action="{% url 'Feed:Follow' following_id=post.user.account_id %}">
+                                                                    {% csrf_token %}
+                                                                    <input type="submit" value="Follow">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="job_descp">
+                                                        <h3><br></h3>
+                                                        <ul class="job-dt">
+                                                            <li><a href="{% url 'Main:Restaurant' id=post.restaurant.restaurant_id %}" title="">{{ post.restaurant }}</a></li>
+                                                        </ul>
+                                                        <p>{{ post.caption }}
+
+                                                            <img src=" {% static 'images/adv1.jpg' %} " alt="">
+                                                        </p>
+
+                                                    </div>
+                                                    <div class="job-status-bar">
+                                                        <ul class="like-com">
+                                                            <li>
+                                                                <form action="{% url 'Feed:Like' %}" method='post'>
+                                                                    {% csrf_token %}
+                                                                    <input name="post_id" type="hidden" value="{{ post.post_id }}">
+                                                                <button type="submit">
+                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                     Like</button>
+                                                                </form>
+                                                                <img src=" {% static 'images/liked-img.png' %} " alt="">
+                                                                <span>{{ post.likes }}</span>
+
+                                                            </li>
+
+                                                        </ul>
                                                     </div>
                                                 </div>
 
-                                            </div>
+                                                <div class="comment-section">
+                                                    <div class="comment-sec">
+                                                        <ul>
+                                                            {% for comment in post.comments.all %}
+                                                            <li>
+                                                                <div class="comment-list">
+                                                                    <div class="bg-img">
+                                                                        <img src=" {% static 'images/resources/bg-img1.png' %} "
+                                                                             alt="">
+                                                                    </div>
+                                                                    <div class="comment">
+                                                                        <h3>{{ comment.user.first_name }} {{ comment.user.last_name}}</h3>
 
-                                            <div class="job_descp">
-                                                <h3><br></h3>
-                                                <ul class="job-dt">
-                                                    <li><a href="#" title="">Restaurant Name Goes Here</a></li>
-                                                </ul>
-                                                <p>CAPTION GOES HERE
+                                                                        <p>{{ comment.body }}</p>
+                                                                    </div>
+                                                                </div>
 
-                                                    <img src=" {% static 'images/adv1.jpg' %} " alt="">
-                                                </p>
 
-                                            </div>
-                                            <div class="job-status-bar">
-                                                <ul class="like-com">
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                            </i> Like</a>
-                                                        <img src=" {% static 'images/liked-img.png' %} " alt="">
-                                                        <span>NUM of likes</span>
+                                                            </li>
+                                                                {% endfor %}
+                                                        </ul>
+                                                    </div>
 
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="comment-section">
-                                            <div class="comment-sec">
-                                                <ul>
-                                                    <li>
-                                                        <div class="comment-list">
-                                                            <div class="bg-img">
-                                                                <img src=" {% static 'images/resources/bg-img1.png' %} "
-                                                                     alt="">
-                                                            </div>
-                                                            <div class="comment">
-                                                                <h3>John Doe</h3>
-                                                                <p>Lorem ipsum dolor sit amet, </p>
-                                                            </div>
+                                                    <div class="post-comment">
+                                                        <div class="cm_img">
+                                                            <img src=" {% static 'images/resources/bg-img4.png' %} " alt="">
                                                         </div>
-
-
-                                                    </li>
-                                                    <li>
-                                                        <div class="comment-list">
-                                                            <div class="bg-img">
-                                                                <img src=" {% static 'images/resources/bg-img3.png' %} "
-                                                                     alt="">
-                                                            </div>
-                                                            <div class="comment">
-                                                                <h3>John Doe</h3>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur
-                                                                    adipiscing elit. Aliquam luctus hendrerit metus,
-                                                                    ut ullamcorper quam finibus at.</p>
-
-                                                            </div>
+                                                        <div class="comment_box">
+                                                            <form method="post" action="{% url 'Feed:Comment' %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="post_id" value={{ post.post_id }}>
+                                                                <input type="text" name="body" placeholder="Post a comment">
+                                                                <button type="submit">Send</button>
+                                                            </form>
                                                         </div>
+                                                    </div>
 
-                                                    </li>
-                                                </ul>
-                                            </div>
 
-                                            <div class="post-comment">
-                                                <div class="cm_img">
-                                                    <img src=" {% static 'images/resources/bg-img4.png' %} " alt="">
                                                 </div>
-                                                <div class="comment_box">
-                                                    <form method="post" action="{% url 'Feed:Comment' %}">
-                                                        {% csrf_token %}
-                                                        <input type="text" placeholder="Post a comment">
-                                                        <button type="submit">Send</button>
-                                                    </form>
-                                                </div>
+
                                             </div>
-
-
-                                        </div>
-
-                                    </div>
+                                    {% endfor %}
 
                                 </div>
 
@@ -261,19 +259,23 @@
 
     <div class="post-popup job_post">
         <div class="post-project">
-            <h3>Post a Photo</h3>
+            <h3>Create a Post</h3>
             <div class="post-project-fields">
                 <form action="{% url 'Feed:Post' %}" method="post">
-
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-12">
-                            <input type="text" name="restaurant" placeholder="Restaurant">
+                            <select name="restaurant">
+                                <option  value="">---SELECT---</option>
+                                {% for rest in restaurants %}
+                                    <option value="{{ rest.restaurant_id }}">{{ rest.name }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
 
 
                         <div class="col-lg-12">
-                            <input type="text" name="description" placeholder="Description">
+                            <input type="text" name="caption" placeholder="Description">
                         </div>
 
 

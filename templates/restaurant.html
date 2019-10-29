@@ -54,7 +54,7 @@
 					<nav>
 						<ul>
 							<li>
-								<a href=" {% static 'Index' %} " title="">
+								<a href=" {% url 'Main:Index' %} " title="">
 									<span><img src=" {% static 'images/icon1.png' %} " alt=""></span>
 									Home
 								</a>
@@ -87,11 +87,11 @@
 
 										<ul class="social_links">
 											<li><a href="#" title=""><em class="fa fa-pinterest"></em>
-													Http://www.pinterest.com/john...</a></li>
+													{{ resturant.pintrest }}</a></li>
 											<li><a href="#" title=""><em class="fa fa-instagram"></em>
-													Http://www.instagram.com/john...</a></li>
+													{{ restaurant.instagram }}</a></li>
 											<li><a href="#" title=""><em class="fa fa-youtube"></em>
-													Http://www.youtube.com/john...</a></li>
+													{{ restaurant.youtube }}</a></li>
 										</ul>
 									</div>
 
@@ -104,16 +104,14 @@
 							<div class="col-lg-6">
 								<div class="main-ws-sec">
 									<div class="user-tab-sec">
-										<h3>Restaurant 1</h3>
+										<h3>{{ restaurant.name }}</h3>
 										<div class="star-descp">
-											<span>Established Since 2009</span>
+											<span>Established Since {{ restaurant.establishment_year }}</span>
 											<ul>
+                                                {% for i in n %}
 												<li><em class="fa fa-star"></em></li>
-												<li><em class="fa fa-star"></em></li>
-												<li><em class="fa fa-star"></em></li>
-												<li><em class="fa fa-star"></em></li>
-												<li><em class="fa fa-star-half-o"></em></li>
-											</ul>
+                                                {% endfor %}
+    										</ul>
 										</div>
 
 										<div class="tab-feed">
@@ -135,15 +133,7 @@
 									<div class="product-feed-tab current" id="info-dd">
 										<div class="user-profile-ov">
 											<h3>Over View</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor
-												aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue
-												nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo
-												viverra. Nunc eu augue nec arcu efficitur faucibus. Aliquam accumsan ac
-												magna convallis bibendum. Quisque laoreet augue eget augue fermentum
-												scelerisque. Vivamus dignissim mollis est dictum blandit. Nam porta
-												auctor neque sed congue. Nullam rutrum eget ex at maximus. Lorem ipsum
-												dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum
-												lorem.</p>
+											<p>{{ restaurant.overview }}</p>
 										</div>
 
 									</div>

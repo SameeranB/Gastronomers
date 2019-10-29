@@ -9,7 +9,12 @@ class CustomUser(AbstractUser):
     username = models.CharField(max_length=100, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    city = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(unique=True)
-    phone = models.IntegerField(unique=True, null=True)
-    thumbnail = models.ImageField(null=True)
+    phone = models.IntegerField(unique=True, null=True, blank=True)
+    thumbnail = models.ImageField(null=True, blank=True)
+
+
+class Follows(models.Model):
+    follower = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='follower')
+    following = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='following')
