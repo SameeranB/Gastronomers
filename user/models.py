@@ -12,4 +12,4 @@ class CustomUser(AbstractUser):
     city = models.CharField(max_length=100, null=True)
     email = models.EmailField(unique=True)
     phone = models.IntegerField(unique=True, null=True)
-    thumbnail = models.ImageField()
+    thumbnail = models.ImageField(null=True)

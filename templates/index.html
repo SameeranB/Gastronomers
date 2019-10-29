@@ -2,38 +2,41 @@
     _HEETARTHI KAMDAR_
 17BCE0132-->
 
-<html>
+<html lang="en">
+{% load static %}
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Abbiocco</title>
-    <link rel="shortcut icon" href="../static/images/icon.ico">
+    <link rel="shortcut icon" href=" {% static 'images/icon.ico' %} ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href=" {% static 'css/style.css' %} " />
 </head>
 <body>
    <div class="fixed-top" >
         <div class="social-container">
             <div class="navbar">
-                <img src="../static/images/logo.png" class="logo" href="#section1">
+                <img src=" {% static 'images/logo.png' %} " class="logo" href="#section1" alt="">
                 <div class="social-icons">
-                <li><a href="https://www.instagram.com/abbiocco.adroitalliance/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.facebook.com/abbiocco.adroitalliance/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="mailto:abbiocco.adroitalliance@gmail.com?Subject=Feedback%20Form" target="_top"><i class="fa fa-envelope-o"></i></a></li>
+                    <ul>
+                <li><a href="https://www.instagram.com/abbiocco.adroitalliance/" target="_blank"><em class="fa fa-instagram"></em></a></li>
+                <li><a href="https://www.facebook.com/abbiocco.adroitalliance/" target="_blank"><em class="fa fa-facebook"></em></a></li>
+                <li><a href="mailto:abbiocco.adroitalliance@gmail.com?Subject=Feedback%20Form" target="_top"><em class="fa fa-envelope-o"></em></a></li>
+                        </ul>
                 </div>
             </div>
         </div>
     </div>
     <section id="section1" class="cd-section1">
         <h1>WHERE'S THE FOOD?</h1><br><br>
-        <img src="../static/images/cheeseburger.png" alt="Cheeseburger" class="hero">
+        <img src=" {% static 'images/cheeseburger.png' %} " alt="Cheeseburger" class="hero">
 </section>
 
 
 <div class="row">
     <div class="column" style="background-color:white;">
         <div class="centered">
-        <img class="img3" src="../static/images/dualphone1.png" alt="dual phone">
+        <img class="img3" src=" {% static 'images/dualphone1.png' %} " alt="dual phone">
     </div>
 </div>
     <div class="column" style="background-color:rgb(255, 255, 255);">
@@ -52,7 +55,7 @@
     </div>
     <div class="column" style="background-color:#fbce33;">
         <div class="centered">
-            <img class="img3" src="../static/images/dualphone2.png" alt="dual phone"><br>
+            <img class="img3" src=" {% static 'images/dualphone2.png' %} " alt="dual phone"><br>
         </div>
     </div>
   </div>
@@ -61,14 +64,14 @@
       
     <div class="centered">
             <h3>BON APPETIT</h3><br>
-            <a href="login.html"><button class="btn third">Get Started</button></a>
-        <br><img class="img2" src="../static/images/half2.png" alt="mockup phone"><br><br>
+            <a href=" {% url 'User:Entry' %} "><button class="btn third">Get Started</button></a>
+        <br><img class="img2" src=" {% static 'images/half2.png' %} " alt="mockup phone"><br><br>
         <footer class="my-5 text-center">
                 <!-- Copyright removal is not prohibited! -->
                 <a style="font-family:Helvica"><b style="font-size:13px;">COPYRIGHT © 2019. ALL RIGHTS RESERVED.</b></a>
         <br>
                 <small><div class="marg">
-                    <a style="font-family:Helvica; font-size:10px;" href="privacy.html" class="m-2"><b>PRIVACY POLICY</b></a>
+                    <a style="font-family:Helvica; font-size:10px;" href="" class="m-2"><b>PRIVACY POLICY</b></a>  #  todo add a privacy page
                 </div></small>
             </footer>
  </div>

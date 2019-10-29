@@ -24,7 +24,15 @@ H
 feed/models.py,0/d/0dfb803a6cdfc1fb68e45b0edf7827107ce59f6b
 =
 feed/admin.py,0/6/06ca49798e0938c71ace94e1b70cc11bed03a00a
-K
-IWP-PROJECT/restaurant.html,5/7/5753c7a8e6cb327d454842ad7a9731928a935503
-E
-IWP-PROJECT/feed.html,b/e/bedb16741a7b771557cb851a29dbecfe4edcee9e
+D
+templates/index.html,f/6/f69b8ce2e31684ae06f1b3e84821e07e3dfddb2f
+<
+main/urls.py,3/d/3d0eb3ab78d4fd3f5937db7e485b4fd824324640
+<
+feed/urls.py,0/7/0738b35780f5a191c824f82e5fcfb5a41ea28e8d
+D
+templates/login.html,f/f/ffdb36cd67c5e5e09ba8e92b13a1dc029c7c4627
+<
+user/urls.py,3/9/397c3d7acf972de4fe8848a32fb506ba5cd1da27
+C
+templates/feed.html,2/d/2d2d5c92decae877722e7f629e2ff425a9aae291

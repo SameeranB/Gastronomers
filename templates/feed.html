@@ -2,294 +2,306 @@
     _HEETARTHI KAMDAR_
 17BCE0132-->
 
+
 <!DOCTYPE html>
-<html>
+{% load static %}
+
+<html lang="en">
+
 
 <head>
-	<meta charset="UTF-8">
-	<title>Abbiocco | Feed</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link rel="stylesheet" type="text/css" href="../static/css/animate.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/fontawesome.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/slick.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
-	<link rel="stylesheet"
-		href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Abbiocco | Feed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/animate.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/fontawesome.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/jquery.mCustomScrollbar.min.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/slick.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/slick-theme.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/style1.css' %} ">
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/responsive.css' %} ">
+    <link rel="stylesheet"
+          href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
 </head>
 
 <body oncontextmenu="return false;">
 
-	<div class="wrapper">
-		<header>
-			<div class="container">
-				<div class="header-data">
-					<div class="search-bar">
-						<form>
-							<input type="text" name="search" placeholder="Search...">
-							<button type="submit"><i class="fa fa-search"></i></button>
-						</form>
-					</div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
-					<nav>
-						<ul>
-							<li>
-								<a href="index.html" title="">
-									<span><img src="../static/images/icon1.png" alt=""></span>
-									Home
-								</a>
-							</li>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-data">
+{#                <div class="search-bar">#}
+{#                    <form action="{% url 'Main:Search' %}" method="post">#}
+{#                        <input type="text" name="search" placeholder="Search...">#}
+{#                        <input type="submit"><em class="fa fa-search"></em>#}
+{#                    </form>#}
+{#                </div>#}
 
-						</ul>
-					</nav>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href=" {% url 'Main:Index' %} " title="">
+                                <span><img src=" {% static 'images/icon1.png' %} " alt=""></span>
+                                Home
+                            </a>
+                        </li>
 
-					<div class="menu-btn">
-						<a href="#" title=""><i class="fa fa-bars"></i></a>
-					</div>
+                    </ul>
+                </nav>
 
-					<div class="user-account">
-						<div class="user-info">
-							<img src="../static/images/resources/user.png" alt="">
-							<a href="#" title="">John</a>
-							<i class="fa fa-sort-down"></i>
-						</div>
-						<div class="user-account-settingss" id="users">
+                <div class="menu-btn">
+                    <a href="#" title=""><em class="fa fa-bars"></em></a>
+                </div>
 
-
-							<h3>Setting</h3>
-							<ul class="us-links">
-								<li><a href="#" title="">Account Setting</a></li>
-								<li><a href="#" title="">Privacy</a></li>
-								<li><a href="#" title="">Faqs</a></li>
-								<li><a href="#" title="">Terms & Conditions</a></li>
-							</ul>
-							<h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</header>
+                <div class="user-account">
+                    <div class="user-info">
+                        <img src=" {% static 'images/resources/user.png' %} " alt="">
+                        <a href="#" title="">John</a>
+                        <em class="fa fa-sort-down"></em>
+                    </div>
+                    <div class="user-account-settingss" id="users">
 
 
-		<main>
-			<div class="main-section">
-				<div class="container">
-					<div class="main-section-data">
-						<div class="row">
-							<div class="col-lg-3 col-md-4 pd-left-none no-pd">
-								<div class="main-left-sidebar no-margin">
-									<div class="user-data full-width">
-										<div class="user-profile">
-											<div class="username-dt">
-												<div class="usr-pic">
-													<img src="../static/images/resources/user-pic.png" alt="">
-												</div>
-											</div>
+                        <h3>Setting</h3>
+                        <ul class="us-links">
+                            <li><a href="#" title="">Account Setting</a></li>
+                            <li><a href="#" title="">Privacy</a></li>
+                            <li><a href="#" title="">Faqs</a></li>
+                            <li><a href="#" title="">Terms & Conditions</a></li>
+                        </ul>
+                        <h3 class="tc"><a href=" {% url 'User:Logout' %} " title="">Logout</a></h3>
+                    </div>
 
-											<div class="user-specs">
-												<h3>John Doe</h3>
-											</div>
-										</div>
+                </div>
+            </div>
 
-										<ul class="user-fw-status">
-											<li>
-												<h4>Following</h4>
-												<span>34</span>
-											</li>
-											<li>
-												<h4>Followers</h4>
-												<span>155</span>
-											</li>
-
-										</ul>
-									</div>
-								</div>
-
-							</div>
-							<div class="col-lg-6 col-md-8 no-pd">
-								<div class="main-ws-sec">
-									<div class="post-topbar">
-										<div class="user-picy">
-											<img src="../static/images/resources/user-pic.png" alt="">
-										</div>
-										<div class="post-st">
-											<ul>
-												<li><a class="post-jb active" href="#" title="">Post a Photo</a></li>
-											</ul>
-										</div>
-
-									</div>
-
-									<div class="posts-section">
-										<div class="posty">
-											<div class="post-bar no-margin">
-												<div class="post_topbar">
-													<div class="usy-dt">
-														<img src="../static/images/resources/us-pc2.png" alt="">
-														<div class="usy-name">
-															<h3>John Doe</h3>
-														</div>
-													</div>
-
-												</div>
-
-												<div class="job_descp">
-													<h3><br></h3>
-													<ul class="job-dt">
-														<li><a href="#" title="">Restaurant Name Goes Here</a></li>
-													</ul>
-													<p>CAPTION GOES HERE
-													
-													<img src="../static/images/adv1.jpg">
-													</p>
-
-												</div>
-												<div class="job-status-bar">
-													<ul class="like-com">
-														<li>
-															<a href="#">
-																<i class="fa fa-thumbs-up" aria-hidden="true"></i>
-															</i> Like</a>
-															<img src="../static/images/liked-img.png" alt="">
-															<span>NUM of likes</span>
-
-														</li>
-														
-													</ul>
-												</div>
-											</div>
-
-											<div class="comment-section">
-												<div class="comment-sec">
-													<ul>
-														<li>
-															<div class="comment-list">
-																<div class="bg-img">
-																	<img src="images/resources/bg-img1.png" alt="">
-																</div>
-																<div class="comment">
-																	<h3>John Doe</h3>
-																	<p>Lorem ipsum dolor sit amet, </p>
-																</div>
-															</div>
-
-															
-														</li>
-														<li>
-															<div class="comment-list">
-																<div class="bg-img">
-																	<img src="images/resources/bg-img3.png" alt="">
-																</div>
-																<div class="comment">
-																	<h3>John Doe</h3>
-																	<p>Lorem ipsum dolor sit amet, consectetur
-																		adipiscing elit. Aliquam luctus hendrerit metus,
-																		ut ullamcorper quam finibus at.</p>
-																	
-																</div>
-															</div>
-
-														</li>
-													</ul>
-												</div>
-
-												<div class="post-comment">
-													<div class="cm_img">
-														<img src="../static/images/resources/bg-img4.png" alt="">
-													</div>
-													<div class="comment_box">
-														<form>
-															<input type="text" placeholder="Post a comment">
-															<button type="submit">Send</button>
-														</form>
-													</div>
-												</div>
+        </div>
+    </header>
 
 
-											</div>
+    <main>
+        <div class="main-section">
+            <div class="container">
+                <div class="main-section-data">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+                            <div class="main-left-sidebar no-margin">
+                                <div class="user-data full-width">
+                                    <div class="user-profile">
+                                        <div class="username-dt">
+                                            <div class="usr-pic">
+                                                <img src=" {% static 'images/resources/user-pic.png' %} " alt="">
+                                            </div>
+                                        </div>
 
-										</div>
+                                        <div class="user-specs">
+                                            <h3>John Doe</h3>
+                                        </div>
+                                    </div>
 
-									</div>
+                                    <ul class="user-fw-status">
+                                        <li>
+                                            <h4>Following</h4>
+                                            <span>34</span>
+                                        </li>
+                                        <li>
+                                            <h4>Followers</h4>
+                                            <span>155</span>
+                                        </li>
 
-								</div>
+                                    </ul>
+                                </div>
+                            </div>
 
-							</div>
-							<div class="col-lg-3 pd-right-none no-pd">
-								<div class="right-sidebar">
-									<div class="widget widget-about">
-										<img src="../static/images/adv1.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 col-md-8 no-pd">
+                            <div class="main-ws-sec">
+                                <div class="post-topbar">
+                                    <div class="user-picy">
+                                        <img src=" {% static 'images/resources/user-pic.png' %} " alt="">
+                                    </div>
+                                    <div class="post-st">
+                                        <ul>
+                                            <li><a class="post-jb active" href="#" title="">Post a Photo</a></li>
+                                        </ul>
+                                    </div>
 
-									</div>
-									<div class="widget widget-about">
-										<img src="../static/images/adv2.jpg" alt="">
+                                </div>
 
-									</div>
+                                <div class="posts-section">
+                                    <div class="posty">
+                                        <div class="post-bar no-margin">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <img src=" {% static 'images/resources/us-pc2.png' %} " alt="">
+                                                    <div class="usy-name">
+                                                        <h3>John Doe</h3>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="job_descp">
+                                                <h3><br></h3>
+                                                <ul class="job-dt">
+                                                    <li><a href="#" title="">Restaurant Name Goes Here</a></li>
+                                                </ul>
+                                                <p>CAPTION GOES HERE
+
+                                                    <img src=" {% static 'images/adv1.jpg' %} " alt="">
+                                                </p>
+
+                                            </div>
+                                            <div class="job-status-bar">
+                                                <ul class="like-com">
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                            </i> Like</a>
+                                                        <img src=" {% static 'images/liked-img.png' %} " alt="">
+                                                        <span>NUM of likes</span>
+
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="comment-section">
+                                            <div class="comment-sec">
+                                                <ul>
+                                                    <li>
+                                                        <div class="comment-list">
+                                                            <div class="bg-img">
+                                                                <img src=" {% static 'images/resources/bg-img1.png' %} "
+                                                                     alt="">
+                                                            </div>
+                                                            <div class="comment">
+                                                                <h3>John Doe</h3>
+                                                                <p>Lorem ipsum dolor sit amet, </p>
+                                                            </div>
+                                                        </div>
 
 
-								</div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="comment-list">
+                                                            <div class="bg-img">
+                                                                <img src=" {% static 'images/resources/bg-img3.png' %} "
+                                                                     alt="">
+                                                            </div>
+                                                            <div class="comment">
+                                                                <h3>John Doe</h3>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur
+                                                                    adipiscing elit. Aliquam luctus hendrerit metus,
+                                                                    ut ullamcorper quam finibus at.</p>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
+                                                            </div>
+                                                        </div>
 
+                                                    </li>
+                                                </ul>
+                                            </div>
 
-
-
-
-		<div class="post-popup job_post">
-			<div class="post-project">
-				<h3>Post a Photo</h3>
-				<div class="post-project-fields">
-					<form>
-
-
-						<div class="row">
-							<div class="col-lg-12">
-								<input type="text" name="restaurant" placeholder="Restaurant">
-							</div>
-							
-						
-							<div class="col-lg-12">
-								<textarea name="description" placeholder="Description"></textarea>
-							</div>
-
-							
-
-
-							<div class="col-lg-12">
-								<ul>
-									<li><button class="active" type="submit" value="post">Post</button></li>
-								</ul>
-							</div>
+                                            <div class="post-comment">
+                                                <div class="cm_img">
+                                                    <img src=" {% static 'images/resources/bg-img4.png' %} " alt="">
+                                                </div>
+                                                <div class="comment_box">
+                                                    <form method="post" action="{% url 'Feed:Comment' %}">
+                                                        {% csrf_token %}
+                                                        <input type="text" placeholder="Post a comment">
+                                                        <button type="submit">Send</button>
+                                                    </form>
+                                                </div>
+                                            </div>
 
 
-						</div>
-					</form>
-				</div>
-				<a href="#" title=""><i class="fa fa-times-circle-o"></i></a>
-			</div>
-		</div>
-	</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 pd-right-none no-pd">
+                            <div class="right-sidebar">
+                                <div class="widget widget-about">
+                                    <img src=" {% static 'images/adv1.jpg' %} " alt="">
+
+                                </div>
+                                <div class="widget widget-about">
+                                    <img src=" {% static 'images/adv2.jpg' %} " alt="">
+
+                                </div>
 
 
-	<script type="text/javascript" src="../static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="../static/js/popper.js"></script>
-	<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../static/js/jquery.mCustomScrollbar.js"></script>
-	<script type="text/javascript" src="../static/js/slick.min.js"></script>
-	<script type="text/javascript" src="../static/js/scrollbar.js"></script>
-	<script type="text/javascript" src="../static/js/script.js"></script>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="post-popup job_post">
+        <div class="post-project">
+            <h3>Post a Photo</h3>
+            <div class="post-project-fields">
+                <form action="{% url 'Feed:Post' %}" method="post">
+
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="text" name="restaurant" placeholder="Restaurant">
+                        </div>
+
+
+                        <div class="col-lg-12">
+                            <input type="text" name="description" placeholder="Description">
+                        </div>
+
+
+                        <div class="col-lg-12">
+                            <ul>
+                                <li>
+                                    <input class="active" type="submit" value="Post">
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <a href="#" title=""><em class="fa fa-times-circle-o"></em></a>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src=" {% static 'js/jquery.min.js' %} "></script>
+<script type="text/javascript" src=" {% static 'js/popper.js' %} "></script>
+<script type="text/javascript" src=" {% static 'js/bootstrap.min.js' %} "></script>
+<script type="text/javascript" src=" {% static 'js/jquery.mCustomScrollbar.js' %} "></script>
+<script type="text/javascript" src=" {% static 'js/slick.min.js' %} "></script>
+<script type="text/javascript" src=" {% static 'js/scrollbar.js' %} "></script>
+<script type="text/javascript" src=" {% static 'js/script.js' %} "></script>
 
 </body>
 
