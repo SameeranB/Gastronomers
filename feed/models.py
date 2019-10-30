@@ -15,6 +15,7 @@ class Posts(models.Model):
     shares = models.IntegerField(default=0, blank=True, null=True)
     caption = models.TextField()
     posted_date = models.DateTimeField(auto_now=True)
+    pic = models.ImageField(blank=True, null=True, upload_to='media')
 
 
 class Pictures(models.Model):

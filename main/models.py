@@ -11,7 +11,7 @@ class Restaurant(models.Model):
     pintrest = models.URLField(null=True, blank=True)
     instagram = models.URLField(null=True, blank=True)
     youtube = models.URLField(null=True, blank=True)
-    establishment_year = models.DateField(auto_now=True)
+    establishment_year = models.DateField(auto_now_add=True)
     rating = models.IntegerField(default=0)
     overview = models.TextField(default="")
 

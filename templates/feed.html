@@ -163,8 +163,11 @@
                                                             <li><a href="{% url 'Main:Restaurant' id=post.restaurant.restaurant_id %}" title="">{{ post.restaurant }}</a></li>
                                                         </ul>
                                                         <p>{{ post.caption }}
-
+                                                            {% if not post.pic  %}
                                                             <img src=" {% static 'images/adv1.jpg' %} " alt="">
+                                                            {% else %}
+                                                                <img src="{{ post.pic.url }}" alt="">
+                                                            {% endif %}
                                                         </p>
 
                                                     </div>
@@ -261,24 +264,25 @@
         <div class="post-project">
             <h3>Create a Post</h3>
             <div class="post-project-fields">
-                <form action="{% url 'Feed:Post' %}" method="post">
+                <form action="{% url 'Feed:Post' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <select name="restaurant">
-                                <option  value="">---SELECT---</option>
-                                {% for rest in restaurants %}
-                                    <option value="{{ rest.restaurant_id }}">{{ rest.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-
-
-                        <div class="col-lg-12">
-                            <input type="text" name="caption" placeholder="Description">
-                        </div>
-
-
+                    {{ post_form }}
+{#                    <div class="row">#}
+{#                        <div class="col-lg-12">#}
+{#                            <select name="restaurant">#}
+{#                                <option  value="">---Select A Restaurant---</option>#}
+{#                                {% for rest in restaurants %}#}
+{#                                    <option value="{{ rest.restaurant_id }}">{{ rest.name }}</option>#}
+{#                                {% endfor %}#}
+{#                            </select>#}
+{#                        </div>#}
+{#                        <input type='file' name="pic" accept="image/*" />#}
+{##}
+{#                        <div class="col-lg-12">#}
+{#                            <input type="text" name="caption" placeholder="Description">#}
+{#                        </div>#}
+{##}
+{##}
                         <div class="col-lg-12">
                             <ul>
                                 <li>
@@ -286,9 +290,9 @@
                                 </li>
                             </ul>
                         </div>
-
-
-                    </div>
+{##}
+{##}
+{#                    </div>#}
                 </form>
             </div>
             <a href="#" title=""><em class="fa fa-times-circle-o"></em></a>

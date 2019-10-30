@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from feed.forms import PostForm
 from feed.models import Posts, Comments
 from main.models import Restaurant
 from user.models import CustomUser, Follows
@@ -13,9 +14,10 @@ def feed(request):
     followers = Follows.objects.filter(following=user).count()
     post_list = Posts.objects.order_by('-posted_date')[:5]
     restaurants = Restaurant.objects.all()
+    post_form = PostForm()
     return render(request, 'feed.html',
                   {'user': user, 'following': following, 'followers': followers, 'post_list': post_list,
-                   'restaurants': restaurants})
+                   'restaurants': restaurants, 'post_form': post_form})
 
 
 def comment(request):
@@ -31,12 +33,16 @@ def comment(request):
 
 def post(request):
     if request.method == 'POST':
-        restaurant = Restaurant.objects.get(restaurant_id=request.POST['restaurant'])
-        caption = request.POST['caption']
-        pos = Posts(user=request.user, restaurant=restaurant, caption=caption)
-        pos.save()
-        messages.success(request, "Your post has been uploaded")
-        return redirect('Feed:Feed')
+        post_data = PostForm(request.POST, request.FILES)
+        if post_data.is_valid():
+            pos = post_data.save(commit=False)
+            pos.user = request.user
+            pos.save()
+            messages.success(request, "Your post has been uploaded")
+            return redirect('Feed:Feed')
+        else:
+            messages.error(request, "There is an error in the post, please try again")
+            return redirect('Feed:Feed')
 
 
 def follow_view(request, **kwargs):

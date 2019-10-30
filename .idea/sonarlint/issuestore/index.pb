@@ -36,3 +36,5 @@ D
 user/urls.py,3/9/397c3d7acf972de4fe8848a32fb506ba5cd1da27
 C
 templates/feed.html,2/d/2d2d5c92decae877722e7f629e2ff425a9aae291
+I
+templates/restaurant.html,9/a/9a049db68400e04f6542f4265ac8d0d5b91c4cc6

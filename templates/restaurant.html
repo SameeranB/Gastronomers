@@ -79,9 +79,11 @@
 
 										<div class="user_pro_status">
 											<h3>
-
+                                                {% if not restaurant.logo %}
 												<img src=" {% static 'images/adv2.jpg' %} " alt="">
-
+												{% else %}
+                                                <img src="{{ restaurant.logo.url}}" alt="">
+                                                {% endif %}
 											</h3>
 										</div>
 
