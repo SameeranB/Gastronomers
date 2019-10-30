@@ -77,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Gastronomers.wsgi.application'
 
-LOGIN_URL = 'user/login'
+LOGIN_URL = 'user/authenticate'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
