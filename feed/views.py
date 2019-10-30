@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -8,6 +9,7 @@ from main.models import Restaurant
 from user.models import CustomUser, Follows
 
 
+@login_required()
 def feed(request):
     user = CustomUser.objects.get(username=request.user.username)
     following = Follows.objects.filter(follower=user).count()
@@ -20,6 +22,7 @@ def feed(request):
                    'restaurants': restaurants, 'post_form': post_form})
 
 
+@login_required()
 def comment(request):
     if request.method == 'POST':
         post = Posts.objects.get(post_id=request.POST['post_id'])
@@ -31,6 +34,7 @@ def comment(request):
         return redirect('Feed:Feed')
 
 
+@login_required()
 def post(request):
     if request.method == 'POST':
         post_data = PostForm(request.POST, request.FILES)
@@ -45,6 +49,7 @@ def post(request):
             return redirect('Feed:Feed')
 
 
+@login_required()
 def follow_view(request, **kwargs):
     following = CustomUser.objects.get(account_id=kwargs['following_id'])
     follower = request.user
@@ -58,6 +63,7 @@ def follow_view(request, **kwargs):
     return redirect('Feed:Feed')
 
 
+@login_required()
 def like_view(request):
     post = Posts.objects.get(post_id=request.POST['post_id'])
     post.likes += 1

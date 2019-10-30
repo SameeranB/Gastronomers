@@ -54,10 +54,18 @@
 					<nav>
 						<ul>
 							<li>
-								<a href=" {% url 'Main:Index' %} " title="">
+                                {% if user.is_authenticated %}
+								<a href=" {% url 'Feed:Feed' %} " title="">
 									<span><img src=" {% static 'images/icon1.png' %} " alt=""></span>
 									Home
-								</a>
+                                </a>
+                                {% else %}
+                                <a href=" {% url 'Main:Index' %} " title="">
+									<span><img src=" {% static 'images/icon1.png' %} " alt=""></span>
+									Home
+                                </a>
+                                {% endif %}
+
 							</li>
 						</ul>
 					</nav>

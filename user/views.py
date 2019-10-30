@@ -1,8 +1,8 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
 
 # Create your views here.
 from user.models import CustomUser
@@ -31,6 +31,7 @@ def login_view(request):
         return HttpResponse("Invalid Method")
 
 
+@login_required()
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully')
@@ -49,11 +50,11 @@ def signup(request):
         first_name = name_parts[0]
         last_name = name_parts[1]
 
-        user = CustomUser.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
+        user = CustomUser.objects.create_user(username=username, email=email, password=password, first_name=first_name,
+                                              last_name=last_name)
         user.save()
 
         login(request, user)
         print("User Logged in")
         messages.success(request, 'You have signed up successfully')
         return redirect('Feed:Feed')
-
